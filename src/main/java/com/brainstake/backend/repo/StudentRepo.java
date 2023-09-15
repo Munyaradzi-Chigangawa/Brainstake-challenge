@@ -7,9 +7,7 @@ import java.util.List;
 
 public interface StudentRepo extends JpaRepository <Student, Long> {
 
-    List<Student> findByLearningClasses(LearningClass learningClass);
-
-    List<Student> findByClassName(LearningClass learningClass);
+    List<Student> findByLearningClass(LearningClass learningClass);
 
 
 }

@@ -1,5 +1,5 @@
 package com.brainstake.backend.services;
-import com.brainstake.backend.d.t.o.LearningClassDto;
+import com.brainstake.backend.dto.LearningClassDto;
 import com.brainstake.backend.exceptions.DataNotFoundException;
 import com.brainstake.backend.models.LearningClass;
 import com.brainstake.backend.repo.LearningClassRepo;
@@ -29,11 +29,10 @@ public class LearningClassService {
     }
 
 
-//    public LearningClass findById(Long id) {
-//        return LearningClassRepo.findById(id).orElseThrow(()-> new DataNotFoundException("Class with ID "+id+" was not found"));
-//    }
+    public LearningClass findById(Long classId) {
+        return learningClassRepo.findById(classId).orElseThrow(()-> new DataNotFoundException("Class with ID "+classId+" was not found"));
+    }
 
-    // Get All Senders
     public List<LearningClass> getClasses() {
         return learningClassRepo.findAll();
     }

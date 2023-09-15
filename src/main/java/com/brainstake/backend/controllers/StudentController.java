@@ -1,6 +1,6 @@
 package com.brainstake.backend.controllers;
 
-import com.brainstake.backend.d.t.o.StudentDto;
+import com.brainstake.backend.dto.StudentDto;
 import com.brainstake.backend.models.Student;
 import com.brainstake.backend.services.StudentService;
 import lombok.RequiredArgsConstructor;

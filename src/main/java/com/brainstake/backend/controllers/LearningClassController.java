@@ -1,5 +1,5 @@
 package com.brainstake.backend.controllers;
-import com.brainstake.backend.d.t.o.LearningClassDto;
+import com.brainstake.backend.dto.LearningClassDto;
 import com.brainstake.backend.models.LearningClass;
 import com.brainstake.backend.services.LearningClassService;
 import lombok.RequiredArgsConstructor;
@@ -22,16 +22,16 @@ public class LearningClassController {
 
      // Create Endpoint
     @PostMapping( value = "/addClass")
-    public ResponseEntity <LearningClass> addSender (@RequestBody LearningClassDto sender) {
-        log.info("Sender Added.");
-        return new ResponseEntity<>(learningClassService.save(sender), HttpStatus.CREATED);
+    public ResponseEntity <LearningClass> addSender (@RequestBody LearningClassDto classDto) {
+        log.info("Class Added.");
+        return new ResponseEntity<>(learningClassService.save(classDto), HttpStatus.CREATED);
     }
 
 
     // Read All Endpoint
     @GetMapping( value = "/getClasses")
     public ResponseEntity <List<LearningClass>> getClasses() {
-        log.info("Senders Retrieved.");
+        log.info("Classes Retrieved.");
         return new ResponseEntity<>(learningClassService.getClasses(), HttpStatus.OK);
     }
 }

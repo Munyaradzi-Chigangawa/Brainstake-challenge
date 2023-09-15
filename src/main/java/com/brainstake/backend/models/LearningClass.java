@@ -15,11 +15,11 @@ import javax.persistence.*;
 @Builder
 
 public class LearningClass {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long classId;
-private String className;
-private String classTeacher;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Long classId;
+    private String className;
+    private String classTeacher;
 
 
 }

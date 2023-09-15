@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "class")
+@Table(name = "student")
 @Builder
 public class Student {
     @Id
@@ -21,10 +21,9 @@ public class Student {
     private Long studentId;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "class_id")
+    @JoinColumn(name = "classId" , foreignKey = @ForeignKey(name = "class_id_fk") ,referencedColumnName = "classId")
     private LearningClass learningClass;
     private String studentName;
-    private String studentClass;
     private String grade;
     private String attendance;
 

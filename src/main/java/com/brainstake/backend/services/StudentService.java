@@ -1,5 +1,5 @@
 package com.brainstake.backend.services;
-import com.brainstake.backend.d.t.o.StudentDto;
+import com.brainstake.backend.dto.StudentDto;
 import com.brainstake.backend.exceptions.DataNotFoundException;
 import com.brainstake.backend.models.LearningClass;
 import com.brainstake.backend.models.Student;
@@ -29,7 +29,6 @@ public class StudentService {
 
         Student student1 = Student.builder()
                 .studentName(student.getStudentName())
-                .studentClass(student.getStudentClass())
                 .attendance(student.getAttendance())
                 .grade(student.getGrade())
                 .learningClass(learningClass)
@@ -57,12 +56,12 @@ public class StudentService {
     public List<Student> getStudents(long classId) {
 
         LearningClass learningClass = learningClassService.findById(classId);
-        return studentRepo.findLearningClassByClassName(learningClass);
+        return studentRepo.findByLearningClass(learningClass);
 
     }
 
     public Student updateStudent (StudentDto studentDto, Long id) {
-        Student student = StudentRepo.findById(id)
+        Student student = studentRepo.findById(id)
                 .orElseThrow(() -> new DataNotFoundException("No Student Found"));
 
         student.setStudentName(studentDto.getStudentName());
